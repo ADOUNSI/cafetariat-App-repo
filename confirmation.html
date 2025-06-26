@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Commande confirmée</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body>
+
+  <main class="confirmation-container">
+    <div class="success-animation">✅</div>
+    <h2>Nous préparons votre plat avec soin ☕🍽️</h2>
+    <p>Vous recevrez un message dès que c’est prêt à être récupéré !</p>
+
+    <div id="resume-commande">
+      <h3>🧾 Récapitulatif de votre commande :</h3>
+      <ul id="liste-resume"></ul>
+      <p id="total-resume" style="margin-top: 10px; font-weight: bold;"></p>
+    </div>
+
+    <div style="margin-top: 30px;">
+      <a href="menu.html">
+        <button class="cta-btn">🛒 Commander autre chose</button>
+      </a>
+    </div>
+  </main>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const check = document.querySelector(".success-animation");
+      if (check) check.classList.add("bounce-in");
+
+      const resume = document.getElementById("liste-resume");
+      const totalAffichage = document.getElementById("total-resume");
+      const panier = JSON.parse(localStorage.getItem("panierSauvegarde")) || [];
+
+      const produits = {
+        "burger": { nom: "Burger Classique", prix: 2500 },
+        "salade": { nom: "Salade César", prix: 1800 },
+        "pizza": { nom: "Pizza 4 Fromages", prix: 3000 },
+        "riz": { nom: "Riz au Poisson", prix: 2000 },
+        "brochette": { nom: "Brochette de Bœuf", prix: 2200 },
+        "jus-ananas": { nom: "Jus d'Ananas", prix: 800 },
+        "omelette": { nom: "Omelette Nature", prix: 1500 },
+        "spaghetti": { nom: "Spaghetti Bolognaise", prix: 2200 },
+        "yassa": { nom: "Poulet Yassa", prix: 2800 }
+      };
+
+      const regroupé = {};
+      let total = 0;
+
+      panier.forEach(id => {
+        regroupé[id] = (regroupé[id] || 0) + 1;
+      });
+
+      for (let id in regroupé) {
+        const produit = produits[id];
+        const qte = regroupé[id];
+        const sousTotal = produit.prix * qte;
+        total += sousTotal;
+
+        const li = document.createElement("li");
+        li.innerText = `${produit.nom} — ${qte} × ${produit.prix} = ${sousTotal} FCFA`;
+        resume.appendChild(li);
+      }
+
+      totalAffichage.innerText = `Total : ${total} FCFA`;
+
+      localStorage.removeItem("panier");
+      localStorage.removeItem("panierSauvegarde");
+    });
+  </script>
+
+</body>
+</html>

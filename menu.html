@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Menu - Cafétéria</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+<body>
+
+  <header>
+    <h1>🍽️ Notre Menu</h1>
+    <nav>
+      <a href="index.html">Accueil</a>
+      <a href="menu.html">Menu</a>
+      <a href="commande.html">Ma commande</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main class="menu-container">
+    <div class="item-card">
+      <img src="img/burger.jpg" alt="Burger maison" />
+      <h3>Burger Classique</h3>
+      <p>2 500 FCFA</p>
+      <button onclick="ajouterProduit('burger')">Ajouter</button>
+    </div>
+
+    <div class="item-card">
+      <img src="img/salade.jpg" alt="Salade fraîche" />
+      <h3>Salade César</h3>
+      <p>1 800 FCFA</p>
+      <button onclick="ajouterProduit('salade')">Ajouter</button>
+    </div>
+
+    <div class="item-card">
+      <img src="img/pizza.jpg" alt="Pizza 4 fromages" />
+      <h3>Pizza 4 Fromages</h3>
+      <p>3 000 FCFA</p>
+      <button onclick="ajouterProduit('pizza')">Ajouter</button>
+    </div>
+
+    <div class="item-card">
+      <img src="img/riz.jpg" alt="Riz au poisson" />
+      <h3>Riz au Poisson</h3>
+      <p>2 000 FCFA</p>
+      <button onclick="ajouterProduit('riz')">Ajouter</button>
+    </div>
+
+    <div class="item-card">
+      <img src="img/brochette.jpg" alt="Brochette de bœuf" />
+      <h3>Brochette de Bœuf</h3>
+      <p>2 200 FCFA</p>
+      <button onclick="ajouterProduit('brochette')">Ajouter</button>
+    </div>
+
+    <div class="item-card">
+      <img src="img/jus.jpg" alt="Jus d'ananas" />
+      <h3>Jus d'Ananas</h3>
+      <p>800 FCFA</p>
+      <button onclick="ajouterProduit('jus-ananas')">Ajouter</button>
+    </div>
+
+    <div class="item-card">
+      <img src="img/omelette.jpg" alt="Omelette nature" />
+      <h3>Omelette Nature</h3>
+      <p>1 500 FCFA</p>
+      <button onclick="ajouterProduit('omelette')">Ajouter</button>
+    </div>
+
+    <div class="item-card">
+      <img src="img/spaghetti.jpg" alt="Spaghetti bolognaise" />
+      <h3>Spaghetti Bolognaise</h3>
+      <p>2 200 FCFA</p>
+      <button onclick="ajouterProduit('spaghetti')">Ajouter</button>
+    </div>
+
+    <div class="item-card">
+      <img src="img/yassa.jpg" alt="Poulet Yassa" />
+      <h3>Poulet Yassa</h3>
+      <p>2 800 FCFA</p>
+      <button onclick="ajouterProduit('yassa')">Ajouter</button>
+    </div>
+  </main>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
